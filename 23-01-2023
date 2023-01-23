@@ -1,3 +1,5 @@
+First Unique Characters:
+
 class Solution {
     public int firstUniqChar(String s) {
       int [] b = new int[26];
