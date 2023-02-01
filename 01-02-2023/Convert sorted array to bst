@@ -1,0 +1,16 @@
+class Solution {
+    public TreeNode sortedArrayToBST(int[] nums) {
+       return  createbst(nums,0,nums.length-1);
+    }
+    private TreeNode createbst(int[] nums,int S ,int E){
+        if(S>E){
+            return null;
+        }
+        int mid = (S+E)/2;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left=createbst(nums,S,mid-1);
+        root.right=createbst(nums,mid+1,E);
+        return root;
+    }
+
+}
