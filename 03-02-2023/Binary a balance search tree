@@ -1,0 +1,26 @@
+class Solution {
+    ArrayList<Integer> l = new ArrayList<>();
+    public TreeNode balanceBST(TreeNode root) {
+    inorder(root);
+    return Tree(0,l.size()-1,l);
+    }
+    public void inorder(TreeNode root){
+        if(root == null){
+            return ;
+        }
+        inorder(root.left);
+        l.add(root.val);
+        inorder(root.right);
+    }
+    public TreeNode Tree(int start,int end ,ArrayList<Integer>l){
+            if(start>end){
+                 return null;
+}
+     int mid = (start +end)/2;
+TreeNode root = new TreeNode(l.get(mid));
+ root.left = Tree(start,mid-1,l);
+ root.right = Tree(mid+1,end,l);
+  return root;
+    }
+   
+}
